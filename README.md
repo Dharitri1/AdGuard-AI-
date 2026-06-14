@@ -1,12 +1,11 @@
-# 🛡️ AdGuard AI — Multi-Agent Real-Time Bidding Fraud Detection on Microsoft Foundry
+#  AdGuard AI — Multi-Agent Real-Time Bidding Fraud Detection on Microsoft Foundry
 
-> **Hackathon:** Agents League Hackathon 2026
-> **Track:** Battle #2 — Reasoning Agents with Microsoft Foundry
-> **Microsoft IQ Layer:** ✅ Foundry IQ — Azure AI Search RAG
 
----
+> **Microsoft IQ Layer:** Foundry IQ — Azure AI Search RAG
 
-## 📌 What This Project Does
+
+
+##  What This Project Does
 
 The global programmatic advertising industry loses **$100 billion annually** to ad fraud.
 Advertisers pay for audiences that never exist — invisible stacked ads, robot click farms,
@@ -18,9 +17,9 @@ real-time bidding traffic, detects fraud the moment it happens, enforces automat
 and delivers a legally-grounded audit report — all without human intervention, in under
 30 seconds.
 
----
 
-## 🤖 Agent Responsibilities
+
+##  Agent Responsibilities
 
 Each agent has a single clearly defined responsibility. No agent overlaps with another.
 
@@ -36,7 +35,7 @@ Each agent has a single clearly defined responsibility. No agent overlaps with a
 
 ---
 
-## 🔄 Orchestration Flow
+##  Orchestration Flow
 
 ```
 INPUT: traffic_logs.json (200 synthetic RTB auction records)
@@ -76,9 +75,8 @@ INPUT: traffic_logs.json (200 synthetic RTB auction records)
          Streamlit Dashboard + 4 live charts
 ```
 
----
 
-## 🔧 Tools and APIs Used
+##  Tools and APIs Used
 
 | Tool | Agent | Purpose | Connection |
 |---|---|---|---|
@@ -88,11 +86,10 @@ INPUT: traffic_logs.json (200 synthetic RTB auction records)
 | Python pandas | Agent 1 | Data processing and anomaly detection | Local library |
 | python-dotenv | Config | Secure key management | Local library |
 
-> **MCP Alignment:** Azure AI Search is connected as a Foundry-compatible knowledge tool following Model Context Protocol principles for grounded, permission-aware retrieval. Agent 2 queries the index and injects retrieved context directly into the Agent 3/4/5 prompt — the RAG pattern that Foundry IQ is designed to support.
+>Azure AI Search is connected as a Foundry-compatible knowledge tool following Model Context Protocol principles for grounded, permission-aware retrieval. Agent 2 queries the index and injects retrieved context directly into the Agent 3/4/5 prompt — the RAG pattern that Foundry IQ is designed to support.
 
----
 
-## 📊 Data Sources
+## Data Sources
 
 | Source | Type | Description |
 |---|---|---|
@@ -100,11 +97,10 @@ INPUT: traffic_logs.json (200 synthetic RTB auction records)
 | fraud-playbook index | Synthetic documents | 7 IAB/MRC compliance documents uploaded to Azure AI Search by evaluate_system.py |
 | iab_compliance_book.pdf | Synthetic reference | Full compliance book aligned with the 7 index documents. No real personal or sensitive data. |
 
-**All data is 100% synthetic.** No real advertiser, publisher, or user data used anywhere.
 
----
 
-## 🕵️ Three Fraud Types Detected
+
+##  Three Fraud Types Detected
 
 | Fraud Type | Publisher | Breach Code | Detection Signal |
 |---|---|---|---|
@@ -112,27 +108,16 @@ INPUT: traffic_logs.json (200 synthetic RTB auction records)
 | Botnet Click Farm | pub_click_nexus | IAB-BF-100 | CTR 35-45% on rewarded_video from static IP |
 | Low-and-Slow Fraud | pub_shadow_network | IAB-LS-200 | imp_bid_ratio 1.5x-1.9x sustained across 40 records |
 
----
 
-## 🧠 Microsoft IQ Layers
 
-### ✅ Foundry IQ — Azure AI Search (Active)
+###  Foundry IQ — Azure AI Search (Active)
 Agent 2 implements Foundry IQ — agentic knowledge retrieval grounded on 7 IAB/MRC
 compliance documents stored in Azure AI Search index fraud-playbook. Every Agent 3
 verdict is cited against real industry law — eliminating hallucination and making
 verdicts legally defensible.
 
-### 🔷 Fabric IQ — Publisher Entity Graph (Architecture)
-Publisher entities are modelled as a semantic knowledge graph:
-Publisher → Campaign → AdSet → FraudType → BreachCode
 
-### 🔷 Work IQ — Microsoft 365 Integration (Roadmap)
-Architecture is designed for M365 integration — fraud alerts routed to Outlook,
-compliance reports to Teams, audit trails to SharePoint.
-
----
-
-## 🛡️ Responsible AI Controls
+## Responsible AI Controls
 
 | Control | Implementation |
 |---|---|
@@ -145,7 +130,7 @@ compliance reports to Teams, audit trails to SharePoint.
 
 ---
 
-## 💰 Cost to Run
+## Cost to Run
 
 | Service | Tier | Cost |
 |---|---|---|
@@ -154,45 +139,9 @@ compliance reports to Teams, audit trails to SharePoint.
 | Streamlit Cloud hosting | Free | $0 |
 | **Full demo day (50 runs)** | | **under $0.10** |
 
----
 
-## 🚀 Quick Start
 
-### 1. Clone and install
-```bash
-git clone https://github.com/YOUR_USERNAME/adguard-ai
-cd adguard-ai
-pip install -r requirement.txt
-```
-
-### 2. Set up your .env file
-```
-AZURE_OPENAI_API_KEY=your_key
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
-AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4.1-mini
-AZURE_AI_SEARCH_ENDPOINT=https://your-search.search.windows.net
-AZURE_AI_SEARCH_KEY=your_search_key
-AZURE_AI_SEARCH_INDEX_NAME=fraud-playbook
-```
-
-### 3. Generate synthetic dataset
-```bash
-python rtb_data_generator.py
-```
-
-### 4. Upload compliance docs to Azure AI Search
-```bash
-python evaluate_system.py
-```
-
-### 5. Run the app
-```bash
-streamlit run app.py
-```
-
----
-
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ADGUARD-AI/
@@ -212,27 +161,12 @@ ADGUARD-AI/
 
 ---
 
-## 🔑 Azure Services
+## Azure Services
 
 | Service | Region | Tier |
 |---|---|---|
-| Microsoft Foundry gpt-4.1-mini | East US 2 | PAYG |
+| Microsoft Foundry gpt-4.1-mini | East US 2 | PAYG S0 |
 | Azure AI Search | East US | Free F0 |
 
----
 
-## 📊 Sample Output
 
-After clicking Run in the dashboard:
-- **Agent 1** — Metrics bar: 200 total, ~60 flagged, ~140 clean, fraud damage in USD
-- **Agent 2** — Foundry IQ: words retrieved from fraud-playbook index confirmed
-- **Agent 3** — Verdict table: publisher, fraud type, breach code, damage
-- **Agent 4** — Enforcement log: blacklist actions, IP blocks, adset disables
-- **Agent 5** — Executive audit report: damage total, budget saved, recommendations
-- **Charts** — Spend, impression ratio, CTR outliers, device type breakdown
-
----
-
-## 👤 Team
-
-Built for the Agents League Hackathon 2026 — Microsoft AI Agents track.
