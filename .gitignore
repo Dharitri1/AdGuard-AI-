@@ -1,0 +1,33 @@
+# ============================================================
+# CRITICAL — Never commit your secret keys to GitHub
+# ============================================================
+.env
+
+# Python cache files (auto-generated, not needed in repo)
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment folders
+venv/
+env/
+.venv/
+.env/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional — remove this line if you want to share settings)
+.vscode/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Streamlit cache
+.streamlit/
+
+# Large data files — regenerate with rtb_data_generator.py
+# data/traffic_logs.json
+# (commented out so the data file IS included in repo for judges)
